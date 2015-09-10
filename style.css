@@ -1,0 +1,286 @@
+*{
+	box-sizing: border-box;
+}
+html, body{
+	height: 100%;
+}
+body{
+	font-family: arial;
+	font-size: 14px;
+	color: #333;
+	margin: 0;
+	padding: 8px;
+}
+video{
+	display: block;
+}
+.window{
+	height: inherit;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0 2px 6px 2px rgba(0,0,0,.3);
+}
+.tray{
+	filter: blur(5px);
+	color: #fff;
+	-webkit-app-region: drag;
+	background: #009290;
+	height: 38px;
+	position: relative;
+}
+.tray h1{
+	position: absolute;
+	height: 100%;
+	margin: 0;
+	font-weight: 100;
+	font-size: 14px;
+	line-height: 37px;
+	padding-left: 20px;
+}
+.tray .btns{
+	display: flex;
+	justify-content: flex-end;
+}
+.tray .btns *{
+	-webkit-app-region: no-drag;
+	height: 38px;
+	width: 48px;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.tray .btns *:hover{
+	background-color: rgba(0,0,0,.2);
+}
+#quit{
+	background-position: 17px center;
+	background-image: url(img/cloase.png);
+}
+#quit:hover{
+	background-color: #e81123;
+}
+#minimize{
+	background-image: url(img/minimize.png);
+}
+
+.content{
+	position: relative;
+	width: 100%;
+	background: #fff;
+	height: calc(100% - 38px);
+	display: flex;
+}
+.content > div{
+	height: 100%;
+	flex-direction: column;
+}
+.contscts{
+	width: 190px;
+	background: #f1f1f1;
+	overflow-y: scroll;
+}
+.contsct{
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+.contsct:first-child{
+	margin-top: 10px;
+}
+.contsct:hover,
+.contsct:active{
+	background: #fff;
+}
+.contsct span{
+	position: relative;
+	padding-left: 20px;
+}
+.contsct span:before{
+	position: absolute;
+	left: 0;
+	top:50%;
+	margin-top: -3px;
+	display: block;
+	content: '';
+	background: #70a736;
+	height: 6px;
+	width: 6px;
+	border-radius: 3px;
+}
+.chat{
+	overflow: hidden;
+	position: relative;
+	background: #f8f8f8;
+	width: 400px;
+	border-right: 1px solid #ddd;
+}
+.call .chat{
+	-webkit-filter: blur(10px);
+	filter: blur(10px);
+}
+.connect .chat{
+	width: 253px;
+}
+
+.chat .text{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	border-top: 1px solid #ddd;
+}
+.chat .text textarea{
+	font-family: arial;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+	height: 40px;
+	outline: none;
+	display: block;
+	resize: none;
+	border:none;
+}
+.chat .text textarea:focus{
+	box-shadow: 0 0 0 3px #559292 inset;
+}
+.history{
+	line-height: 10px;
+	padding: 20px 10px;
+	overflow-y: scroll;
+	height: calc(100% - 41px);
+}
+.mess{
+	line-height: normal;
+	position: relative;
+	float: left;
+	background: #E8E8E8;
+	border-radius: 2px;
+	display: inline;
+	max-width: 200px;
+	padding: 8px 10px;
+	margin-bottom: 10px;
+}
+.mess:before{
+	position: absolute;
+	left: 0;
+	top:-7px;
+	content: '';
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #E8E8E8;
+}
+.mess.my{
+	float: right;
+	background: #c8eaea;
+}
+.mess.my:before{
+	border-right: 10px solid #c8eaea;
+	border-bottom: 10px solid transparent;
+	top: auto;
+	bottom: -7px;
+	left: auto;
+	right: 0;
+}
+.video_chat{
+	width: 340px;
+	display: none;
+}
+.connect .video_chat{
+	display: block;
+}
+.video_chat{
+	width: 340px;
+}
+.vidio_dialog{
+	position: relative;
+	padding: 10px;
+	padding-bottom: 0;
+}
+#remote_video{
+	background:#9eaaaa;
+	width: 320px;
+	height: 240px;
+}
+#local_video{
+	background: #414f4f;
+	position: absolute;
+	width: 80px;
+	height: 60px;
+	bottom: 10px;
+	right: 20px;
+}
+.video_chat .btns{
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	height: 60px;
+}
+.video_chat .btns > div{
+	height: 40px;
+	width: 40px;
+	border-radius: 25px;
+	margin: 0 10px;
+	background-size: 24px auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+.video_chat .btns > div:hover{
+	background-color: rgba(0,0,0,.05);
+}
+.call_btn{background-image: url(img/call.png)}
+.call_btn.active{background-image: url(img/call_end.png)}
+.video_btn{ background-image: url(img/video.png)}
+.video_btn.active{ background-image: url(img/video_off.png)}
+.mic_btn{ background-image: url(img/mic.png)}
+.mic_btn.active{ background-image: url(img/mic_off.png)}
+
+#call{
+	display: none;
+	height: 100%;
+	width: calc(100% - 190px);
+	background: rgba(0,0,0,.7);
+	position: absolute;
+	top:0;
+	right:0;
+}
+.call #call{
+	display: block;
+}
+#call .name{
+	margin-top: 80px;
+	font-size: 24px;
+	text-shadow: 0px 1px 2px rgba(0,0,0,.5);
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+}
+#call .btns{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#call .btns > div{
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	background-color: #EEE;
+	cursor: pointer;
+	margin: 30px 10px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 24px auto;
+}
+
+#call .btns > div.min{
+	height: 30px;
+	width: 30px;
+	background-size: 16px auto;
+}
+#call .btns > .call_btn{
+	background-color: #d52b3b;
+	background-image: url(img/cal_end_w.png);
+}

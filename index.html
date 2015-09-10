@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+	<title>Chat</title>
+</head>
+<body>
+	<div class="window">
+		<div class="tray">
+			<h1 onclick="win.showDevTools();">WebRTC VideoChat</h1>
+			<div class="btns">
+				<div id="minimize" onclick="win.minimize();"></div>
+				<div id="quit" onclick="win.hide();"></div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="contscts">
+				<div class="contsct" onclick="app.dialog.view()"><span class="name">Maxim Borodin</span></div>
+				<div class="contsct"><span class="name">Maxim Borodin</span></div>
+				<div class="contsct"><span class="name">Maxim Borodin</span></div>
+				<div class="contsct"><span class="name">Maxim Borodin</span></div>
+				<div class="contsct"><span class="name">Maxim Borodin</span></div>
+				<div class="contsct"><span class="name">Maxim Borodin</span></div>
+			</div>
+
+			<div class="chat">
+				<div class="history">
+					<div class="mess">Hello world</div><br>
+					<div class="mess my">Hello world</div><br>
+					<div class="mess">Hello world Hello world ld Hello world Hello world Hello wo Hello world Hello world Hello world</div><br>
+					<div class="mess my">Hello world Hello world Hello world Hello world Hello world Hello world</div><br>
+				</div>
+				<div class="text">
+					<textarea rows="1"></textarea>
+					<div class="send_btn"></div>
+				</div>
+			</div>
+
+			<div class="video_chat">
+				<div class="vidio_dialog">
+					<video id="remote_video"></video>
+					<video id="local_video"></video>
+				</div>
+				<div class="btns">
+					<div class="call_btn"></div>
+					<div class="video_btn"></div>
+					<div class="mic_btn"></div>
+				</div>
+			</div>
+			<div id="call">
+				<div class="name">Denis Borodin</div>
+				<div class="btns">
+					<div class="call_btn"></div>
+					<div class="video_btn min"></div>
+					<div class="mic_btn min"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
